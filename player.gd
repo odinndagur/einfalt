@@ -28,6 +28,13 @@ func _input(event):
 			)
 		$Camera_Pivot/Camera3D.look_at($Camera_Pivot.global_position)
 
+func _process(_delta):
+#	pass
+	if position.y < -200:
+#		print(position)
+		get_tree().reload_current_scene()
+
+
 
 func _physics_process(delta):
 	if Input.is_action_pressed("sprint"):

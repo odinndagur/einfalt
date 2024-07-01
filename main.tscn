@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://7acis1h0407f"]
+[gd_scene load_steps=39 format=3 uid="uid://7acis1h0407f"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_tvk2c"]
 [ext_resource type="PackedScene" uid="uid://cxrjj2owftbsn" path="res://player.tscn" id="1_v4lfu"]
 [ext_resource type="Script" path="res://player.gd" id="2_tecio"]
+[ext_resource type="Material" uid="uid://b6o5equxlv0tr" path="res://appelsinugulur.tres" id="4_hlmx3"]
+[ext_resource type="Material" uid="uid://b3uw07yav1ikx" path="res://shaderinn.tres" id="4_kj4jn"]
 [ext_resource type="Script" path="res://item.gd" id="4_qmwkd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_umt5p"]
@@ -273,6 +275,9 @@ motion_mode = 0
 script = ExtResource("2_tecio")
 mouse_sensitivity = 0.005
 
+[node name="MeshInstance3D" parent="Player" index="2"]
+surface_material_override/0 = ExtResource("4_hlmx3")
+
 [node name="Camera3D" parent="Player/Camera_Pivot" index="0"]
 current = true
 
@@ -282,6 +287,7 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("BoxMesh_umt5p")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_ws4el")
@@ -293,6 +299,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.3698, 1.41601, 13.475
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60083, 0, -16.7112)
 mesh = SubResource("ArrayMesh_jtevo")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube"]
 
@@ -303,6 +310,7 @@ shape = SubResource("ConcavePolygonShape3D_fdonr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02249, 1.41706, -15.7067)
 mesh = SubResource("ArrayMesh_tyn4g")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_hlmx3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_001"]
 
@@ -313,6 +321,7 @@ shape = SubResource("ConcavePolygonShape3D_eg11i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1892, 0, -9.40574)
 mesh = SubResource("ArrayMesh_ho3pq")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_002"]
 
@@ -323,6 +332,7 @@ shape = SubResource("ConcavePolygonShape3D_wutvs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6717, 1.45615, -5.23556)
 mesh = SubResource("ArrayMesh_ngpst")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_003"]
 
@@ -333,6 +343,7 @@ shape = SubResource("ConcavePolygonShape3D_mtfk7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6842, 3.01373, -10.6538)
 mesh = SubResource("ArrayMesh_5ycip")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_hlmx3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_005"]
 
@@ -343,6 +354,7 @@ shape = SubResource("ConcavePolygonShape3D_aeh1o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4542, 3.71194, -9.01003)
 mesh = SubResource("ArrayMesh_vdys2")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_006"]
 
@@ -353,6 +365,7 @@ shape = SubResource("ConcavePolygonShape3D_x2v74")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2646, 5.58134, 1.94811)
 mesh = SubResource("ArrayMesh_k27u2")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kj4jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="random_game_assets/Cube_004"]
 
