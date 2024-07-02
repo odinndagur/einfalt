@@ -29,7 +29,7 @@ func _input(event):
 		rotate_y(mouse_delta.x * -mouse_sensitivity)
 		$Camera_Pivot.rotation.x = clamp(
 			$Camera_Pivot.rotation.x - mouse_delta.y * mouse_sensitivity,
-			deg_to_rad(-90.0),
+			deg_to_rad(-60.0),
 			deg_to_rad(90.0)
 			)
 		$Camera_Pivot/Camera3D.look_at($Camera_Pivot.global_position)

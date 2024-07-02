@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://7acis1h0407f"]
+[gd_scene load_steps=44 format=3 uid="uid://7acis1h0407f"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_tvk2c"]
 [ext_resource type="PackedScene" uid="uid://cxrjj2owftbsn" path="res://player.tscn" id="1_v4lfu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://b6o5equxlv0tr" path="res://appelsinugulur.tres" id="4_hlmx3"]
 [ext_resource type="Material" uid="uid://b3uw07yav1ikx" path="res://shaderinn.tres" id="4_kj4jn"]
 [ext_resource type="Script" path="res://item.gd" id="4_qmwkd"]
+[ext_resource type="Script" path="res://misc_label.gd" id="7_fwvn5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_umt5p"]
 size = Vector3(5, 0.2, 20)
@@ -435,6 +436,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="random_game_assets2/Cube-col_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rli0p")
+
+[node name="Label" type="Label" parent="random_game_assets2/Cube-col_001"]
+offset_right = 209.0
+offset_bottom = 116.0
+script = ExtResource("7_fwvn5")
 
 [connection signal="body_entered" from="shleck" to="Player" method="_on_shleck_body_entered"]
 
