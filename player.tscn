@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxrjj2owftbsn"]
+[gd_scene load_steps=7 format=3 uid="uid://cxrjj2owftbsn"]
+
+[ext_resource type="Material" uid="uid://b6o5equxlv0tr" path="res://appelsinugulur.tres" id="1_30au7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6n8v0"]
 
@@ -29,8 +31,10 @@ shape = SubResource("SphereShape3D_6n8v0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_vrkeq")
+surface_material_override/0 = ExtResource("1_30au7")
 
-[node name="Camera_Pivot" type="Node3D" parent="."]
+[node name="Camera_Pivot" type="SpringArm3D" parent="."]
+spring_length = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.944376, 0.328867, 0, -0.328867, 0.944376, 0, 0.839, 1.707)

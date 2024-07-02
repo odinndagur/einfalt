@@ -8,5 +8,5 @@ func _ready():
 	player_camera_pivot = player.get_node("Camera_Pivot")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set_text((player_camera_pivot.rotation.x))
+	set_text(str(player_camera_pivot.rotation.x))
 	pass

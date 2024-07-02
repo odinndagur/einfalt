@@ -114,10 +114,6 @@ misc={
 
 [shader_globals]
 
-diffuse_curve={
-"type": "sampler2D",
-"value": ""
-}
 specular_smoothness={
 "type": "float",
 "value": 0.05
@@ -133,4 +129,8 @@ outline_width={
 outline_color={
 "type": "color",
 "value": Color(0, 0, 0, 1)
+}
+diffuse_curve={
+"type": "sampler2D",
+"value": ""
 }
