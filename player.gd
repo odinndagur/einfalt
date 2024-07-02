@@ -7,14 +7,20 @@ extends CharacterBody3D
 @export var jump_velocity = 4.5
 @export var mouse_sensitivity = 0.03
 
+@export var prefab : Node3D
+
 var player_speed
 var is_jumping = false
-var is_extra_jumping = false
+var jump_count = 0
+@export var max_jumps = 4
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 #Func _input(event): If event is InputEventMouseMotion: Var mouse_delta = event.relative
+
+func can_jump():
+	return jump_count < max_jumps
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -46,21 +52,18 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 		
 	if is_on_floor():
-		if is_extra_jumping:
-			is_extra_jumping = false
+		if jump_count > 0:
+			jump_count = 0
+		# if is_extra_jumping:
+			# is_extra_jumping = false
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if can_jump():
+			jump_count += 1
 			velocity.y = jump_velocity
-		else:
-			if not is_extra_jumping:
-				velocity.y = jump_velocity
-				is_extra_jumping = true
-			
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var input_dir = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
