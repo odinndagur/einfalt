@@ -1,26 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxrjj2owftbsn"]
+[gd_scene load_steps=5 format=3 uid="uid://cxrjj2owftbsn"]
 
 [ext_resource type="Material" uid="uid://b6o5equxlv0tr" path="res://appelsinugulur.tres" id="1_30au7"]
+[ext_resource type="Environment" uid="uid://6vc1t0nfk6tk" path="res://world_environment.tres" id="2_ewx8j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6n8v0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_vrkeq"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iif8y"]
-sky_curve = 0.0174944
-ground_bottom_color = Color(0.160784, 0.262745, 0.258824, 1)
-
-[sub_resource type="Sky" id="Sky_v7xnk"]
-sky_material = SubResource("ProceduralSkyMaterial_iif8y")
-
-[sub_resource type="Environment" id="Environment_whek4"]
-background_mode = 2
-sky = SubResource("Sky_v7xnk")
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.005
-
 [node name="Player" type="CharacterBody3D"]
-motion_mode = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -38,4 +25,6 @@ spring_length = 3.15
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.944376, 0.328867, 0, -0.328867, 0.944376, 0, 0.839, 1.707)
-environment = SubResource("Environment_whek4")
+environment = ExtResource("2_ewx8j")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

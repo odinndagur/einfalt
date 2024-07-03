@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://6vc1t0nfk6tk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iif8y"]
+sky_curve = 0.0174944
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.160784, 0.262745, 0.258824, 1)
+ground_curve = 0.139288
+
+[sub_resource type="Sky" id="Sky_v7xnk"]
+sky_material = SubResource("ProceduralSkyMaterial_iif8y")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_v7xnk")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.005
