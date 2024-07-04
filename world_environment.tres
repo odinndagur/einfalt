@@ -12,3 +12,5 @@ sky_material = SubResource("ProceduralSkyMaterial_iif8y")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_v7xnk")
+glow_enabled = true
+glow_bloom = 1.0

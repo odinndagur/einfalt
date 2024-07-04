@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://t6l5xktpjyrj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mejgw"]
+[ext_resource type="PackedScene" uid="uid://cxrjj2owftbsn" path="res://player.tscn" id="2_u5leu"]
+[ext_resource type="Script" path="res://player.gd" id="3_b6b2y"]
+[ext_resource type="PackedScene" uid="uid://drsbjqo624g1c" path="res://downtownmeshgoturnaes.blend" id="4_8s2py"]
+
+[node name="nyttscene" type="Node3D"]
+script = ExtResource("1_mejgw")
+
+[node name="Player" parent="." instance=ExtResource("2_u5leu")]
+transform = Transform3D(-0.190809, 0, 0.981627, 0, 1, 0, -0.981627, 0, -0.190809, 0, 13.8408, 0)
+script = ExtResource("3_b6b2y")
+base_player_speed = 15.0
+mouse_sensitivity = 0.005
+max_jumps = 16
+
+[node name="Camera_Pivot" parent="Player" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
+
+[node name="Camera3D" parent="Player/Camera_Pivot" index="0"]
+transform = Transform3D(1, -3.72529e-09, -1.49012e-08, 0, 0.944376, 0.328867, 0, -0.328867, 0.944377, 0, 0.839, 1.707)
+current = true
+
+[node name="downtownmeshgoturnaes" parent="." instance=ExtResource("4_8s2py")]
+
+[editable path="Player"]
+[editable path="downtownmeshgoturnaes"]
