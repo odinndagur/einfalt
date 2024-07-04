@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://digucjkyl568c"
-path="res://.godot/imported/3_20_2023.glb-bee26810299d8187467a30be6225fd34.scn"
+path="res://.godot/imported/3_20_2023.glb-5a8e3f8aa99af85a5d8c4d9a907b09f9.scn"
 
 [deps]
 
-source_file="res://3_20_2023.glb"
-dest_files=["res://.godot/imported/3_20_2023.glb-bee26810299d8187467a30be6225fd34.scn"]
+source_file="res://glb/3_20_2023.glb"
+dest_files=["res://.godot/imported/3_20_2023.glb-5a8e3f8aa99af85a5d8c4d9a907b09f9.scn"]
 
 [params]
 
