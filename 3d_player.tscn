@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://b86guuhxi8x2p"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_sk6es"]
+[ext_resource type="Environment" uid="uid://6vc1t0nfk6tk" path="res://world_environment.tres" id="2_emi68"]
+[ext_resource type="PackedScene" uid="uid://h5tvowox0n78" path="res://plaidgirl.blend" id="3_gtho1"]
+[ext_resource type="Material" uid="uid://b6o5equxlv0tr" path="res://appelsinugulur.tres" id="4_r34li"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gm5y2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4pwjk"]
+animation = &"run_cycle"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rhkbc"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y7vq2"]
+graph_offset = Vector2(3.84, 59.52)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_4pwjk")
+nodes/Animation/position = Vector2(80, 210)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rhkbc")
+nodes/TimeScale/position = Vector2(310, 150)
+nodes/output/position = Vector2(530, 260)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_sk6es")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera_Pivot" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97778, -0.133187)
+spring_length = 3.15
+
+[node name="Camera3D" type="Camera3D" parent="Camera_Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.98701, 0.160657, 0, -0.160657, 0.98701, 0, -0.164922, 2.49199)
+environment = ExtResource("2_emi68")
+fov = 45.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gm5y2")
+
+[node name="plaidgirl" parent="." instance=ExtResource("3_gtho1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Light" parent="plaidgirl" index="0"]
+visible = false
+
+[node name="Camera" parent="plaidgirl" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="plaidgirl/plaidgirl_armature" index="0"]
+bones/0/position = Vector3(4.54747e-15, 0.896664, 4.05075e-08)
+bones/0/rotation = Quaternion(-1.15256e-07, 1.49012e-08, -1.65853e-15, 1)
+bones/1/rotation = Quaternion(-1.62807e-16, 0.279468, 0.960155, 9.22977e-09)
+bones/2/rotation = Quaternion(-0.277048, -7.28184e-06, -2.50849e-05, 0.960856)
+bones/3/rotation = Quaternion(0.340152, -7.36233e-06, 1.47596e-06, 0.940371)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.219428, 1.0123e-06, 5.06657e-06, 0.975629)
+bones/6/rotation = Quaternion(1.25618e-08, 1.93103e-07, -2.01151e-07, 1)
+bones/7/rotation = Quaternion(-0.00142098, -0.351339, 0.93624, -0.00378622)
+bones/8/rotation = Quaternion(-0.0664951, 0.000166032, -0.00557171, 0.997771)
+bones/9/rotation = Quaternion(0.456443, -0.000232254, 0.000149683, 0.889753)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.219429, 3.58804e-07, 6.50319e-07, 0.975629)
+bones/11/rotation = Quaternion(-2.34708e-07, -5.48317e-08, -4.95118e-08, 1)
+bones/12/rotation = Quaternion(3.11204e-08, 1.28755e-07, -1.00671e-07, 1)
+bones/13/rotation = Quaternion(0.153971, -1.83549e-08, 1.22377e-07, 0.988075)
+bones/16/rotation = Quaternion(0.427097, 0.565335, -0.556599, 0.4338)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.625439, 0.379211, -0.00281249, 0.681921)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.357356, 0.0245762, 0.79341, 0.492131)
+bones/21/rotation = Quaternion(-0.15014, 5.05284e-08, -1.56609e-08, 0.988665)
+bones/25/rotation = Quaternion(6.66435e-08, 0.707107, 0.707107, -5.33851e-08)
+bones/27/rotation = Quaternion(4.66387e-08, 0.707107, 0.707107, -5.33851e-08)
+bones/29/rotation = Quaternion(0.43046, -0.560985, 0.560986, 0.430459)
+bones/30/rotation = Quaternion(0.404275, -0.173508, -0.385147, 0.811245)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/rotation = Quaternion(-0.240042, 0.109003, -0.662762, 0.700888)
+bones/31/scale = Vector3(1, 1, 1)
+
+[node name="plaidgirl_mesh" parent="plaidgirl/plaidgirl_armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("4_r34li")
+surface_material_override/1 = ExtResource("4_r34li")
+
+[node name="AnimationPlayer" parent="plaidgirl" index="3"]
+root_motion_track = NodePath("plaidgirl_armature/Skeleton3D:mixamorig_Hips")
+speed_scale = 1.33
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../plaidgirl")
+root_motion_track = NodePath("plaidgirl_armature/Skeleton3D:mixamorig_Hips")
+tree_root = SubResource("AnimationNodeBlendTree_y7vq2")
+anim_player = NodePath("../plaidgirl/AnimationPlayer")
+parameters/TimeScale/scale = 1.0
+
+[editable path="plaidgirl"]

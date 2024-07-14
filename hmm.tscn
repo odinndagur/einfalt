@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ma4gsrncj40i"]
+
+[ext_resource type="PackedScene" uid="uid://b86guuhxi8x2p" path="res://3d_player.tscn" id="1_6fnic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwb2g"]
+size = Vector3(6, 0.2, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbw7g"]
+size = Vector3(6, 0.2, 6)
+
+[node name="hmm" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6fnic")]
+
+[node name="Skeleton3D" parent="Player/plaidgirl/plaidgirl_armature" index="0"]
+bones/1/rotation = Quaternion(3.39202e-16, -0.235845, 0.971791, -1.62477e-09)
+bones/2/rotation = Quaternion(-0.141865, -3.75099e-06, -2.58377e-05, 0.989886)
+bones/3/rotation = Quaternion(0.558557, 4.43645e-06, -4.70673e-06, 0.829466)
+bones/7/rotation = Quaternion(0.00152975, 0.378296, 0.925676, -0.00374358)
+bones/8/rotation = Quaternion(-0.660375, 0.00165326, -0.00419312, 0.750922)
+bones/9/rotation = Quaternion(0.598362, 0.000202778, -0.000125562, 0.801226)
+bones/17/rotation = Quaternion(0.495231, 0.0892604, 0.385134, 0.773596)
+bones/18/rotation = Quaternion(-0.204934, -0.157801, 0.648345, 0.716065)
+bones/30/rotation = Quaternion(0.429758, -0.623522, -0.0885437, 0.647061)
+bones/31/rotation = Quaternion(-0.528667, 0.18519, -0.778885, 0.282055)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.477431, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rwb2g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_bbw7g")
+skeleton = NodePath("../..")
+
+[editable path="Player"]
+[editable path="Player/plaidgirl"]

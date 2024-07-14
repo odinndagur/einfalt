@@ -8,6 +8,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity = 0.03
 @export var look_speed = 0.4
 
+@export var min_angle = -90.0
+@export var max_angle = 90.0
+
 @export var prefab : Node3D
 
 var player_speed
@@ -73,17 +76,20 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * player_speed
 		velocity.z = direction.z * player_speed
+		#$plaidgirl/AnimationPlayer.play("run_cycle")
 	else:
 		velocity.x = move_toward(velocity.x, 0, player_speed)
 		velocity.z = move_toward(velocity.z, 0, player_speed)
-	
+		#$plaidgirl/AnimationPlayer.stop()
+	$AnimationTree.set("parameters/TimeScale/scale",velocity.z)
+		
 	var y_rotation = Input.get_axis("turn_left","turn_right") * -turn_speed
 	rotate_y(y_rotation)
 	var x_rotation = Input.get_axis("look_down","look_up") * -turn_speed
 	$Camera_Pivot.rotation.x = clamp(
 		$Camera_Pivot.rotation.x - x_rotation * look_speed,
-		deg_to_rad(-90.0),
-		deg_to_rad(90.0)
+		deg_to_rad(min_angle),
+		deg_to_rad(max_angle)
 	)
 
 	move_and_slide()
